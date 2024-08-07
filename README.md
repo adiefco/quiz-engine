@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Quiz Engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Quiz Engine project for the React Developer role at SiPhox Health. This application allows users to take quizzes with various types of questions, including one-choice, multiple-choice, and input questions. The quiz engine supports conditional navigation based on user answers.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Setup](#setup)
+- [Usage](#usage)
+- [JSON Structure](#json-structure)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Supports one-choice, multiple-choice, and input questions
+- Conditional navigation between questions based on user answers
+- Progress bar indicating quiz progress
+- Option to restart the quiz after completion
+- User can choose between two different quizzes at the start
+- Simple and clean design using CSS/SCSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+Follow these steps to set up the project locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+    ```bash
+    git clone https://github.com/your-username/quiz-engine.git
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    cd quiz-engine
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the dependencies:
 
-### `npm run eject`
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    The application will run at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. Open the application in your web browser.
+2. Enter your name and press "Start" or hit the "Enter" key.
+3. Choose between the available quizzes.
+4. Answer the questions one by one. If you answer incorrectly, you will receive feedback.
+5. After completing the quiz, you can restart it by clicking the "Restart" button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## JSON Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The quiz questions are stored in JSON files. Below is an example structure for a quiz:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+[
+  {
+    "id": "q1",
+    "title": "Question 1",
+    "description": "This is the first question.",
+    "image": "path/to/image.jpg",
+    "type": "one-choice",
+    "options": [
+      { "id": "1", "text": "Option 1", "correct": false },
+      { "id": "2", "text": "Option 2", "correct": true },
+      { "id": "3", "text": "Option 3", "correct": false }
+    ],
+    "feedback": "Incorrect answer. Please try again.",
+    "conditionalNavigation": [
+      { "optionId": "2", "nextQuestionId": "q2" },
+      { "default": true, "nextQuestionId": "q1" }
+    ]
+  },
+  {
+    "id": "q2",
+    "title": "Question 2",
+    "description": "This is the second question.",
+    "type": "input",
+    "options": [],
+    "feedback": "Incorrect answer. Please try again.",
+    "conditionalNavigation": [
+      { "correctAnswer": "42", "nextQuestionId": "q3" },
+      { "default": true, "nextQuestionId": "q2" }
+    ]
+  },
+  {
+    "id": "q3",
+    "title": "Question 3",
+    "description": "This is the third question.",
+    "type": "multiple-choice",
+    "options": [
+      { "id": "1", "text": "Option A", "correct": true },
+      { "id": "2", "text": "Option B", "correct": true },
+      { "id": "3", "text": "Option C", "correct": false }
+    ],
+    "feedback": "Incorrect answer. Please try again.",
+    "conditionalNavigation": [
+      { "optionIds": ["1", "2"], "nextQuestionId": "end" },
+      { "default": true, "nextQuestionId": "q3" }
+    ]
+  }
+]

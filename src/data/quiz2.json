@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "type": "one-choice",
+      "title": "Which planet is known as the Red Planet?",
+      "description": "Choose the correct answer from the options below.",
+      "image": "",
+      "options": [
+        { "id": 1, "text": "Earth" },
+        { "id": 2, "text": "Jupiter" },
+        { "id": 3, "text": "Mars", "correct": true },
+        { "id": 4, "text": "Saturn" }
+      ],
+      "feedback": "Incorrect answer. Try again!",
+      "conditionalNavigation": [
+        { "optionId": 3, "nextQuestionId": 2 },
+        { "default": true, "nextQuestionId": null }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "input",
+      "title": "How many continents are there in the world?",
+      "description": "Enter the number of continents.",
+      "image": "",
+      "feedback": "There are 7 continents. Try again?",
+      "conditionalNavigation": [
+        { "correctAnswer": "7", "nextQuestionId": 3 },
+        { "default": true, "nextQuestionId": null }
+      ]
+    }
+  ]
+  
