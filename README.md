@@ -52,7 +52,7 @@ Follow these steps to set up the project locally:
 
 ## Usage
 
-1. Open the application in your web browser (or you can view the live demo [here](https://adiefco.github.io/quiz-engine).)
+1. Open the application in your web browser.
 2. Enter your name and press "Start" or hit the "Enter" key.
 3. Choose between the available quizzes.
 4. Answer the questions one by one. If you answer incorrectly, you will receive feedback.
