@@ -10,7 +10,6 @@ Welcome to the Quiz Engine project for the React Developer role at SiPhox Health
 - [JSON Structure](#json-structure)
 - [Technologies](#technologies)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -111,3 +110,15 @@ The quiz questions are stored in JSON files. Below is an example structure for a
     ]
   }
 ]
+```
+
+## Technologies
+
+React
+
+CSS/SCSS
+
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any features, bug fixes, or improvements.
